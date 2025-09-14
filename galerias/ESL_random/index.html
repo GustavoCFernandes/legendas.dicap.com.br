@@ -1,0 +1,184 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+<head>
+    <title>DICAP - Legendas</title>
+    <meta charset="utf-8">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    
+    <!-- Meta SEO -->        
+    <meta name="description" content="O rumo certo para aprender"/>
+    <meta name="keywords" content="Assessoria Empresarial"/>
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="images/fav.png" type="image/png">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Fontes Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@500;800&display=swap" rel="stylesheet">
+    
+    <!-- Fonte do Menu Burguer -->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+</head>
+
+<body>
+<nav>
+    <ul class="menu_nav">
+        <li><a href="../../index.html">Voltar</a></li>
+       <!-- <li><a href="#videos_extras">Vídeos Extras</a></li>
+        <li><a href="#ESL_random">ESL - Random</a></li>
+        <li><a href="#ESL_Business">ESL - Business Lessons</a></li> -->
+    </ul>
+</nav>
+
+<div class="container">
+    <div class="video-list">
+        <ul id="videoItems">
+            <!-- Exemplo de vídeos do YouTube -->
+<section id="ESL_Business">
+<h2>ESL - Random Lessons</h2> <br>
+<li data-video-src="https://video-dicap.b-cdn.net/videos/001_ESL_Introducing_Yourself.mp4">001 ESL Introducing Yourself</li>
+<li data-video-src="https://video-dicap.b-cdn.net/videos/002_ESL_Getting_Up.mp4">002 ESL Getting Up</li>
+<li data-video-src="https://video-dicap.b-cdn.net/videos/003_ESL_Cleaning_Up.mp4">003 ESL Cleaning Up</li>
+<li data-video-src="https://video-dicap.b-cdn.net/videos/004_ESL_Eating_Breakfast.mp4">004 ESL Eating Breakfast</li>
+<li data-video-src="https://video-dicap.b-cdn.net/videos/005_ESL_Getting_Ready_for_Work.mp4">005 ESL Getting Ready for Work</li>
+<li data-video-src="https://video-dicap.b-cdn.net/videos/006_ESL_The_Commute_to_Work.mp4">006 ESL The Commute to Work</li>
+<li data-video-src="https://video-dicap.b-cdn.net/videos/007_ESL_At_My_Desk_On%20Break_and_At_Lunch.mp4">007 ESL At_ My Desk On Break and At Lunch</li>
+    
+    
+<li data-video-src="https://video-dicap.b-cdn.net/videos/008_ESL_The_Commute_Home_and_Running_Errands.mp4">008 ESL The Commute Home and Running Errands</li>
+<li data-video-src="https://video-dicap.b-cdn.net/videos/009_ESL_Making_Dinner.mp4">009 ESL Making Dinner</li>
+<li data-video-src="https://video-dicap.b-cdn.net/videos/010_ESL_Relaxing_and_Reading_the_Mail.mp4">010 ESL Relaxing and Reading the Mail</li>
+<li data-video-src="https://video-dicap.b-cdn.net/videos/011_ESL_Getting_Ready_for_Bed_and_Going_to_Sleep.mp4">011 ESL Getting Ready for Bed and Going to Sleep</li>
+<li data-video-src="https://video-dicap.b-cdn.net/videos/012_Small_Talk_About_the_Weather.mp4">012 Small Talk About the Weather</li>
+<li data-video-src="https://video-dicap.b-cdn.net/videos/013_ESL_Going_to_he_Drugstore.mp4">013 ESL Going to the Drugstore</li>
+<li data-video-src="https://video-dicap.b-cdn.net/videos/014_ESL_Going_to_the_Post_Office.mp4">014 ESL Going to the Post Office</li>
+<li data-video-src="https://video-dicap.b-cdn.net/videos/015_ESL_Problems_at_the_Office.mp4">015 ESL Problems at the Office</li>
+<li data-video-src="https://video-dicap.b-cdn.net/videos/016_ESL_Driving_on_the_Freeways.mp4">016 ESL Driving on the Freeways</li>
+<li data-video-src="https://video-dicap.b-cdn.net/videos/017_ESL_Reading_the_Newspaper.mp4">017 ESL Reading the Newspaper</li>
+
+</section>
+
+        </ul>
+    </div>
+
+ 
+    <!-- Player de Vídeo -->
+<div class="video-player">
+    <h2 id="videoTitle">Selecione um vídeo</h2>
+    <div id="videoContainer"></div> <!-- Container para o iframe do YouTube -->
+    
+    <!-- Botões adicionais -->
+    <div class="buttons-container">
+        <button class="botao-copiar" onclick="copiarLink()">Copiar Link do Vídeo</button>
+        <button class="botao-whatsapp" onclick="enviarWhatsApp()">Enviar no WhatsApp</button>
+        <button class="botao-baixar" onclick="baixarVideo()">Baixar Vídeo</button> <!-- Novo botão -->
+    </div>
+</div>
+</div>
+
+<script>
+// Função para carregar o vídeo selecionado
+// Função para carregar o vídeo selecionado
+document.querySelectorAll('#videoItems li').forEach(item => {
+    item.addEventListener('click', () => {
+        const videoSrc = item.getAttribute('data-video-src'); // Obtém o link do vídeo
+        const videoTitle = item.textContent; // Obtém o título do vídeo
+
+        // Atualiza o título do vídeo
+        document.getElementById('videoTitle').textContent = videoTitle;
+
+        // Limpa o container antes de adicionar o novo vídeo
+        const videoContainer = document.getElementById('videoContainer');
+        videoContainer.innerHTML = '';
+
+        // Cria um elemento <video> para reproduzir o vídeo
+        const videoElement = document.createElement('video');
+        videoElement.setAttribute('src', videoSrc);
+        videoElement.setAttribute('controls', ''); // Adiciona controles ao player
+        videoElement.setAttribute('width', '560');
+        videoElement.setAttribute('height', '400');
+        videoElement.style.borderRadius = '15px'; // Estilização opcional
+
+        // Adiciona o elemento de vídeo ao container
+        videoContainer.appendChild(videoElement);
+
+        // Armazena o link do vídeo atual em uma variável global
+        window.currentVideoSrc = videoSrc;
+    });
+});
+
+// Função para copiar o link do vídeo
+function copiarLink() {
+    const videoSrc = window.currentVideoSrc; // Obtém o link do vídeo atual
+    if (videoSrc) {
+        navigator.clipboard.writeText(videoSrc).then(() => {
+            alert('Link copiado para a área de transferência!');
+        }).catch(err => {
+            console.error('Erro ao copiar o link:', err);
+        });
+    } else {
+        alert('Nenhum vídeo selecionado.');
+    }
+}
+
+// Função para baixar o vídeo
+function baixarVideo() {
+    const videoSrc = window.currentVideoSrc; // Obtém o link do vídeo atual
+
+    if (!videoSrc) {
+        alert('Nenhum vídeo selecionado.');
+        return;
+    }
+
+    // Exibe uma mensagem informando que o download começou
+    alert('Iniciando o download...');
+
+    // Usa fetch para baixar o arquivo como um Blob
+    fetch(videoSrc)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Erro ao acessar o vídeo. Verifique o link.');
+            }
+            return response.blob(); // Converte a resposta em um Blob
+        })
+        .then(blob => {
+            // Cria um objeto URL para o Blob
+            const url = window.URL.createObjectURL(blob);
+
+            // Cria um elemento <a> para iniciar o download
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'video.mp4'; // Define o nome do arquivo de download
+            document.body.appendChild(a);
+
+            // Simula o clique no elemento <a> para iniciar o download
+            a.click();
+
+            // Remove o elemento <a> após o download
+            document.body.removeChild(a);
+
+            // Libera o objeto URL para liberar memória
+            window.URL.revokeObjectURL(url);
+
+            // Exibe uma mensagem informando que o download foi concluído
+            alert('O vídeo foi baixado e estará disponível na pasta de downloads do seu computador.');
+        })
+        .catch(error => {
+            console.error('Erro ao baixar o vídeo:', error);
+            alert('Ocorreu um erro ao baixar o vídeo. Verifique sua conexão ou o link do vídeo.');
+        });
+}
+
+
+</script>
+    <script href="js/video.js"></script>
+    <script href="js/compartilhar.js"></script>
+    <script href="js/preloader.js"></script>
+    <script href="js/top.js"></script>
+</body>
+</html>

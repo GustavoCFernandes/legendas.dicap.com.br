@@ -1,0 +1,196 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+<head>
+    <title>DICAP - Legendas</title>
+    <meta charset="utf-8">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    
+    <!-- Meta SEO -->        
+    <meta name="description" content="O rumo certo para aprender"/>
+    <meta name="keywords" content="Assessoria Empresarial"/>
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="images/fav.png" type="image/png">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Fontes Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@500;800&display=swap" rel="stylesheet">
+    
+    <!-- Fonte do Menu Burguer -->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+</head>
+
+<body>
+<nav>
+    <ul class="menu_nav">
+        <li><a href="../../index.html">Voltar</a></li>
+       <!-- <li><a href="#videos_extras">Vídeos Extras</a></li>
+        <li><a href="#ESL_random">ESL - Random</a></li>
+        <li><a href="#ESL_Business">ESL - Business Lessons</a></li> -->
+    </ul>
+</nav>
+
+<div class="container">
+    <div class="video-list">
+        <ul id="videoItems">
+            <!-- Exemplo de vídeos do YouTube -->
+<section id="ESL_Business">
+<h2>Diversos</h2> <br>
+<li data-video-src="https://video-dicap.b-cdn.net/Diversos/Adjectives%20into%20Verbs.mp4">
+    Adjectives into Verbs</li>
+<li data-video-src="https://video-dicap.b-cdn.net/Diversos/Funeral_Script_Randall's_ESL_Cyber_Listenin.mp4">
+    Funeral Script Randall's ESL Cyber Listenin</li>
+<li data-video-src="https://video-dicap.b-cdn.net/Diversos/How_to_Keep_a_Project_on_Schedule.mp4">
+    How to Keep a Project on Schedule</li>
+<li data-video-src="https://video-dicap.b-cdn.net/Diversos/leading-with-vulnerability-morgan-en-47937.mp4">
+    leading with vulnerability morgan en 47937</li>
+<li data-video-src="https://video-dicap.b-cdn.net/Diversos/phrases_part_01.mp4">
+    phrases part 01 - <br>Useful Pheases for Casual Conversation</li>
+<li data-video-src="https://video-dicap.b-cdn.net/Videos%20curtos/reflex%C3%A3o%20motiva%C3%A7%C3%A3o%20Raul%20gazolla%20isso%20foi%20as%20%C3%BAltimas%20palavras%20Steve%20Jobs.%F0%9F%99%81%20%23caminhoparaumavida.mp4">
+    Reflexão de Raul gazolla, últimas palavras Steve Jobs.</li>
+<li data-video-src="https://video-dicap.b-cdn.net/Diversos/L.Vuitton.mp4">
+    L. Vuitton</li>    
+ 
+    
+<li data-video-src="https://video-dicap.b-cdn.net/Diversos/22%20English%20Expressions%20with%20a%20native%20speaker.mp4">
+    22 English Expressions with a native speaker</li>
+    
+<li data-video-src="https://video-dicap.b-cdn.net/Diversos/Everton's%20Meeting%20on%20June%2016th%2C%202025_ok.mp4">
+    Everton's Meeting on June 16th, 2025</li> 
+    
+<li data-video-src="https://video-dicap.b-cdn.net/Diversos/Everton's%20meeting%20-%2002.mp4">
+    Everton's meeting - 02, 2025</li> 
+    
+<li data-video-src="https://video-dicap.b-cdn.net/Diversos/how-to-make-someone-feel-seen-and-heard.mp4">
+    How to make someone feel seen and heard</li> 
+
+<li data-video-src="https://video-dicap.b-cdn.net/Diversos/AMERICAN%20FAST%20SPEECH%20%F0%9F%87%BA%F0%9F%87%B8%20(Improve%20Your%20Speak.mp4">
+    AMERICAN FAST SPEECH <br>🇺🇸<br> (Improve Your Speaking fluency)</li> 
+    
+    
+    
+</section>
+
+        </ul>
+    </div>
+
+    <!-- Player de Vídeo -->
+<div class="video-player">
+    <h2 id="videoTitle">Selecione um vídeo</h2>
+    <div id="videoContainer"></div> <!-- Container para o iframe do YouTube -->
+    
+    <!-- Botões adicionais -->
+    <div class="buttons-container">
+        <button class="botao-copiar" onclick="copiarLink()">Copiar Link do Vídeo</button>
+        <button class="botao-whatsapp" onclick="enviarWhatsApp()">Enviar no WhatsApp</button>
+        <button class="botao-baixar" onclick="baixarVideo()">Baixar Vídeo</button> <!-- Novo botão -->
+    </div>
+</div>
+</div>
+
+<script>
+// Função para carregar o vídeo selecionado
+// Função para carregar o vídeo selecionado
+document.querySelectorAll('#videoItems li').forEach(item => {
+    item.addEventListener('click', () => {
+        const videoSrc = item.getAttribute('data-video-src'); // Obtém o link do vídeo
+        const videoTitle = item.textContent; // Obtém o título do vídeo
+
+        // Atualiza o título do vídeo
+        document.getElementById('videoTitle').textContent = videoTitle;
+
+        // Limpa o container antes de adicionar o novo vídeo
+        const videoContainer = document.getElementById('videoContainer');
+        videoContainer.innerHTML = '';
+
+        // Cria um elemento <video> para reproduzir o vídeo
+        const videoElement = document.createElement('video');
+        videoElement.setAttribute('src', videoSrc);
+        videoElement.setAttribute('controls', ''); // Adiciona controles ao player
+        videoElement.setAttribute('width', '560');
+        videoElement.setAttribute('height', '400');
+        videoElement.style.borderRadius = '15px'; // Estilização opcional
+
+        // Adiciona o elemento de vídeo ao container
+        videoContainer.appendChild(videoElement);
+
+        // Armazena o link do vídeo atual em uma variável global
+        window.currentVideoSrc = videoSrc;
+    });
+});
+
+// Função para copiar o link do vídeo
+function copiarLink() {
+    const videoSrc = window.currentVideoSrc; // Obtém o link do vídeo atual
+    if (videoSrc) {
+        navigator.clipboard.writeText(videoSrc).then(() => {
+            alert('Link copiado para a área de transferência!');
+        }).catch(err => {
+            console.error('Erro ao copiar o link:', err);
+        });
+    } else {
+        alert('Nenhum vídeo selecionado.');
+    }
+}
+
+// Função para baixar o vídeo
+function baixarVideo() {
+    const videoSrc = window.currentVideoSrc; // Obtém o link do vídeo atual
+
+    if (!videoSrc) {
+        alert('Nenhum vídeo selecionado.');
+        return;
+    }
+
+    // Exibe uma mensagem informando que o download começou
+    alert('Iniciando o download...');
+
+    // Usa fetch para baixar o arquivo como um Blob
+    fetch(videoSrc)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Erro ao acessar o vídeo. Verifique o link.');
+            }
+            return response.blob(); // Converte a resposta em um Blob
+        })
+        .then(blob => {
+            // Cria um objeto URL para o Blob
+            const url = window.URL.createObjectURL(blob);
+
+            // Cria um elemento <a> para iniciar o download
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'video.mp4'; // Define o nome do arquivo de download
+            document.body.appendChild(a);
+
+            // Simula o clique no elemento <a> para iniciar o download
+            a.click();
+
+            // Remove o elemento <a> após o download
+            document.body.removeChild(a);
+
+            // Libera o objeto URL para liberar memória
+            window.URL.revokeObjectURL(url);
+
+            // Exibe uma mensagem informando que o download foi concluído
+            alert('O vídeo foi baixado e estará disponível na pasta de downloads do seu computador.');
+        })
+        .catch(error => {
+            console.error('Erro ao baixar o vídeo:', error);
+            alert('Ocorreu um erro ao baixar o vídeo. Verifique sua conexão ou o link do vídeo.');
+        });
+}
+
+
+</script>
+    <script href="js/video.js"></script>
+    <script href="js/compartilhar.js"></script>
+    <script href="js/preloader.js"></script>
+    <script href="js/top.js"></script>
+</body>
+</html>

@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --principal-a: #0A0438;
+    --principal-b: #262A87; /* variação */
+    --principal-c: #F7FBFF; /* e5474b; */
+    
+    --Font_Light: #3A3969;
+    
+    --select: #0A0438; /* cor do hover */
+    --hover-2: #EB1A21;
+    --fundo-1: #fff; /* fundo branco */
+    --fundo-2: #FDE7DC; /* fundo escuro */
+    --fundo-3: #D3DCE9; /* #D3DCE9 */
+}
+
+* {
+    font-family: "Barlow", sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--fundo-3);
+    min-width: 600px;
+}
+/* ========================== */
+/* ========================== */
+/* ========================== */
+/* nav menu */
+
+nav{
+    position: sticky;
+    top: 0px;
+    width: 100%;  
+    z-index: 10000;
+    background-color: var( --principal-b);
+}
+.menu_nav {
+    width: 90%;
+    display: flex;
+    margin: auto;
+    justify-content:center;
+  
+}
+
+
+.menu_nav li{
+    padding: 6px 16px;
+    margin: 5px;
+    list-style: none;
+    background-color: var(--principal-b);
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px #000;
+}
+
+.menu_nav li:hover{
+    background-color: var(--principal-a);
+    transition: 0.5s;
+}
+
+.menu_nav li a{
+    text-decoration: none;
+    font-weight: bolder;
+    color: #fff;
+}
+.menu_nav li a:hover{
+    color: var(--fundo-3);
+    transition: 0.5s;
+}
+
+.botao-baixar {
+    padding: 5px 8px;
+    background-color: var(--Font_Light); /* Cor azul */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.botao-baixar:hover {
+    background-color: var(--principal-a); /* Cor azul mais escura ao passar o mouse */
+}
+
+/* Estilo do contêiner principal */
+.container {
+    display: flex;
+    flex-wrap: nowrap;
+    margin-top: 5px;
+}
+
+/* Estilo da lista de vídeos */
+.video-list {
+    height: 95vh;
+    min-width: 300px;
+    max-width: 500px;
+    padding: 20px;
+    border-right: 1px solid var(--Font_Light);
+    background-color: var(--fundo-1);
+    position: sticky; /* Fica fixo enquanto rola */
+    top: 0; /* Fixa no topo da tela */
+    overflow: auto;
+    border-radius: 5px;
+}
+
+/* Estilo das listas */
+.video-list ul {
+    padding: 10px 10px 10px 18px;
+    list-style:decimal-leading-zero;
+}
+
+.video-list li {
+    cursor: pointer;
+    padding: 15px;
+    margin: 5px 0;
+    border-radius: 10px;
+    background-color: var(--fundo-3);
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.video-list li:hover {
+    background-color: var(--principal-b);
+    color: var(--fundo-1); /* Muda a cor do texto no hover */
+}
+
+/* Estilo do player de vídeo */
+.video-player {
+    position: sticky;
+    top: 5px;
+    padding: 20px;
+    background-color: var(--fundo-1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    margin: 20px; /* Espaço ao redor do player */
+}
+
+/* Estilo do vídeo */
+#videoContainer {    
+    width: 100%;
+    /*max-height: 70vh;*/
+    border: 50px;
+    padding: 5px;
+    border-radius: 50px; /* Bordas arredondadas para o vídeo */
+    
+}
+
+
+::-webkit-scrollbar {
+    width: 18px;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px var(--principal-a); 
+    background-color: var(--princial-c);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--principal-a);
+    border-radius: 5px;
+  
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--principal-b);
+    border-radius: 10px;
+   
+}
+
+.buttons-container {
+                margin-top: 5px;
+                display: flex;
+                gap: 10px;
+                justify-content: center;
+                
+            }
+            .baixar, .botao-copiar, .botao-whatsapp {
+                padding: 5px 8px;
+                background-color: var(--Font_Light); /* Cor azul */
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 16px;
+            }
+            .botao-baixar:hover,
+            .botao-copiar:hover,
+            .botao-whatsapp:hover {
+                background-color: var(--principal-a); /* Cor azul mais escura ao passar o mouse */
+            }
+
